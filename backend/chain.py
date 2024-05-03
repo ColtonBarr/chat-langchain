@@ -39,7 +39,7 @@ RESPONSE_TEMPLATE = """\
 You are an expert programmer and problem-solver, tasked with answering any question \
 about Langchain.
 
-Generate a comprehensive and informative answer of 80 words or less for the \
+Generate a comprehensive and informative answer of 150 words or less for the \
 given question based solely on the provided search results (URL and content). You must \
 only use information from the provided search results. Use an unbiased and \
 journalistic tone. Combine search results together into a coherent answer. Do not \
@@ -238,7 +238,7 @@ def create_chain(llm: LanguageModelLike, retriever: BaseRetriever) -> Runnable:
 
 gpt_3_5 = ChatOpenAI(model="gpt-3.5-turbo-0125", temperature=0, streaming=True)
 claude_3_sonnet = ChatAnthropic(
-    model="claude-3-sonnet-20240229",
+    model="claude-3-opus-20240229",
     temperature=0,
     max_tokens=4096,
     anthropic_api_key=os.environ.get("ANTHROPIC_API_KEY", "not_provided"),
