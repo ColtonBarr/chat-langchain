@@ -31,7 +31,7 @@ export function EmptyState(props: { onChoice: (question: string) => any }) {
               color={"gray.200"}
               textAlign={"center"}
             >
-              How do I use a RecursiveUrlLoader to load content from a page?
+              Is it possible to superimposed two volumes in slice view?
             </Heading>
           </CardHeader>
         </Card>
@@ -52,7 +52,7 @@ export function EmptyState(props: { onChoice: (question: string) => any }) {
               color={"gray.200"}
               textAlign={"center"}
             >
-              What does RunnablePassthrough.assign() do?
+              How would i perform 3d ultrasound reconstruction?
             </Heading>
           </CardHeader>
         </Card>
@@ -74,7 +74,7 @@ export function EmptyState(props: { onChoice: (question: string) => any }) {
               color={"gray.200"}
               textAlign={"center"}
             >
-              Explain multi-vector retrieval and how it can improve results.
+              Where do I get started with creating my own 3D Slicer extension?
             </Heading>
           </CardHeader>
         </Card>
@@ -95,7 +95,7 @@ export function EmptyState(props: { onChoice: (question: string) => any }) {
               color={"gray.200"}
               textAlign={"center"}
             >
-              How do I run a model locally on my laptop with Ollama?
+              What is a MRML node?
             </Heading>
           </CardHeader>
         </Card>

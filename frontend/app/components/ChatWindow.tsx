@@ -21,6 +21,7 @@ import {
   InputGroup,
   InputRightElement,
   Spinner,
+  Image
 } from "@chakra-ui/react";
 import { ArrowUpIcon } from "@chakra-ui/icons";
 import { Select, Link } from "@chakra-ui/react";
@@ -214,17 +215,23 @@ export function ChatWindow(props: { conversationId: string }) {
         alignItems={"center"}
         marginTop={messages.length > 0 ? "" : "64px"}
       >
+        <Image
+          src="/images/slicerchat-logo.svg" // Path to your logo image
+          alt="Slicer Chat Logo"
+          boxSize="100px" // Set the size of the image
+          mb={4} // Margin bottom for spacing between the image and the text
+        />
         <Heading
           fontSize={messages.length > 0 ? "2xl" : "3xl"}
           fontWeight={"medium"}
           mb={1}
           color={"white"}
         >
-          Chat LangChain 🦜🔗
+          Slicer Chat 1.0
         </Heading>
         {messages.length > 0 ? (
           <Heading fontSize="md" fontWeight={"normal"} mb={1} color={"white"}>
-            We appreciate feedback!
+            Chat with ReadTheDocs and Discourse!
           </Heading>
         ) : (
           <Heading
@@ -234,9 +241,12 @@ export function ChatWindow(props: { conversationId: string }) {
             marginTop={"10px"}
             textAlign={"center"}
           >
-            Ask me anything about LangChain&apos;s{" "}
-            <Link href="https://python.langchain.com/" color={"blue.200"}>
-              Python documentation!
+            Ask me anything about 3D Slicer&apos;s{" "}
+            <Link href="https://slicer.readthedocs.io/en/latest/" color={"blue.200"}>
+              Documentation
+            </Link> and{" "}
+            <Link href="https://discourse.slicer.org/" color={"blue.200"}>
+              Discourse Forum!
             </Link>
           </Heading>
         )}
@@ -291,7 +301,7 @@ export function ChatWindow(props: { conversationId: string }) {
           value={input}
           maxRows={5}
           marginRight={"56px"}
-          placeholder="What does RunnablePassthrough.assign() do?"
+          placeholder="Type your question in here!"
           textColor={"white"}
           borderColor={"rgb(58, 58, 61)"}
           onChange={(e) => setInput(e.target.value)}
