@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { RemoteRunnable } from "@langchain/core/runnables/remote";
 import { applyPatch } from "@langchain/core/utils/json_patch";
@@ -40,6 +40,14 @@ const defaultLlmValue =
   MODEL_TYPES[Math.floor(Math.random() * MODEL_TYPES.length)];
 
 export function ChatWindow(props: { conversationId: string }) {
+  return (
+    <Suspense fallback={<Spinner size="xl" />}>
+      <InternalChatWindow {...props} />
+    </Suspense>
+  );
+}   
+
+export function InternalChatWindow(props: { conversationId: string }) {
   const conversationId = props.conversationId;
 
   const searchParams = useSearchParams();
@@ -55,7 +63,7 @@ export function ChatWindow(props: { conversationId: string }) {
   useEffect(() => {
     setLlm(searchParams.get("llm") ?? defaultLlmValue);
     setLlmIsLoading(false);
-  }, []);
+  }, [searchParams]);
 
   const [chatHistory, setChatHistory] = useState<
     { human: string; ai: string }[]
