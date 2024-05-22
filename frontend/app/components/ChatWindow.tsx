@@ -274,11 +274,6 @@ export function InternalChatWindow(props: { conversationId: string }) {
               >
                 <option value="openai_gpt_3_5_turbo">GPT-3.5-Turbo</option>
                 <option value="anthropic_claude_3_sonnet">Claude 3 Sonnet</option>
-                <option value="google_gemini_pro">Google Gemini Pro</option>
-                <option value="fireworks_mixtral">
-                  Mixtral (via Fireworks.ai)
-                </option>
-                <option value="cohere_command">Cohere</option>
               </Select>
             )}
           </div>
@@ -341,7 +336,7 @@ export function InternalChatWindow(props: { conversationId: string }) {
       {messages.length === 0 ? (
         <footer className="flex justify-center absolute bottom-8">
           <a
-            href="https://github.com/langchain-ai/chat-langchain"
+            href="https://github.com/ColtonBarr/chat-langchain"
             target="_blank"
             className="text-white flex items-center"
           >

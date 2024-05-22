@@ -124,10 +124,12 @@ def ingest_docs():
     logger.info(f"Loaded {len(docs_from_readthedocs)} docs from ReadTheDocs")
 
     # Path to the base directory containing all the markdown files
-    discourse_path = r"C:\repos\chat-langchain\_scripts\archive\rendered-topics"
+
+    discourse_path = r"C:\data\slicerchat\archive\rendered-topics"
     discourse_docs = process_directory(discourse_path)
 
-    docs_transformed = text_splitter.split_documents(docs_from_readthedocs + discourse_docs)
+    # docs_transformed = text_splitter.split_documents(docs_from_readthedocs + discourse_docs)
+    docs_transformed = text_splitter.split_documents(docs_from_readthedocs)
     docs_transformed = [doc for doc in docs_transformed if len(doc.page_content) > 10]
 
     # We try to return 'source' and 'title' metadata when querying vector store and
