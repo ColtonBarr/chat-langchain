@@ -333,6 +333,15 @@ export function InternalChatWindow(props: { conversationId: string }) {
         </InputRightElement>
       </InputGroup>
 
+      <Heading
+          fontSize="s"
+          fontWeight={"light"}
+          mb={1}
+          color={"gray"}
+        >
+          Note that anonymous usage statistics are collected.
+        </Heading>
+
       {messages.length === 0 ? (
         <footer className="flex justify-center absolute bottom-8">
           <a
