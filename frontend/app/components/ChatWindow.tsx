@@ -339,7 +339,7 @@ export function InternalChatWindow(props: { conversationId: string }) {
           mb={1}
           color={"gray"}
         >
-          Note that anonymous usage statistics are collected.
+          Note that this is an experimental tool under development and is not affiliated with Slicer.org. Anonymous usage statistics are collected to improve performance.
         </Heading>
 
       {messages.length === 0 ? (
