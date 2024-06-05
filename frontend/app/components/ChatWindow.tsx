@@ -235,7 +235,7 @@ export function InternalChatWindow(props: { conversationId: string }) {
           mb={1}
           color={"white"}
         >
-          Slicer Chat 1.0
+          Slicer Chat
         </Heading>
         {messages.length > 0 ? (
           <Heading fontSize="md" fontWeight={"normal"} mb={1} color={"white"}>
@@ -340,22 +340,7 @@ export function InternalChatWindow(props: { conversationId: string }) {
           color={"gray"}
         >
           Note that this is an experimental tool under development and is not affiliated with Slicer.org. Anonymous usage statistics are collected to improve performance.
-        </Heading>
-
-      {messages.length === 0 ? (
-        <footer className="flex justify-center absolute bottom-8">
-          <a
-            href="https://github.com/ColtonBarr/chat-langchain"
-            target="_blank"
-            className="text-white flex items-center"
-          >
-            <img src="/images/github-mark.svg" className="h-4 mr-1" />
-            <span>View Source</span>
-          </a>
-        </footer>
-      ) : (
-        ""
-      )}
+      </Heading>
     </div>
   );
 }

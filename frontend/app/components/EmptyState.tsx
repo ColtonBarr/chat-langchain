@@ -31,7 +31,7 @@ export function EmptyState(props: { onChoice: (question: string) => any }) {
               color={"gray.200"}
               textAlign={"center"}
             >
-              Is it possible to superimposed two volumes in slice view?
+              Is it possible to superimpose two volumes in slice view?
             </Heading>
           </CardHeader>
         </Card>
