@@ -29,7 +29,7 @@ import { Source } from "./SourceBubble";
 import { apiBaseUrl } from "../utils/constants";
 
 const MODEL_TYPES = [
-  "openai_gpt_3_5_turbo",
+  "gpt-4o-mini",
   "anthropic_claude_3_sonnet",
   "google_gemini_pro",
   "fireworks_mixtral",
@@ -37,7 +37,7 @@ const MODEL_TYPES = [
 ];
 
 const defaultLlmValue =
-  MODEL_TYPES[Math.floor(Math.random() * MODEL_TYPES.length)];
+  MODEL_TYPES[0];
 
 export function ChatWindow(props: { conversationId: string }) {
   return (
@@ -57,7 +57,7 @@ export function InternalChatWindow(props: { conversationId: string }) {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [llm, setLlm] = useState(
-    searchParams.get("llm") ?? "openai_gpt_3_5_turbo",
+    searchParams.get("llm") ?? "gpt-4o-mini",
   );
   const [llmIsLoading, setLlmIsLoading] = useState(true);
   useEffect(() => {
@@ -120,7 +120,7 @@ export function InternalChatWindow(props: { conversationId: string }) {
           timeout: 60000,
         },
       });
-      const llmDisplayName = llm ?? "openai_gpt_3_5_turbo";
+      const llmDisplayName = llm ?? "gpt-4o-mini";
       const streamLog = await remoteChain.streamLog(
         {
           question: messageValue,
@@ -239,7 +239,7 @@ export function InternalChatWindow(props: { conversationId: string }) {
         </Heading>
         {messages.length > 0 ? (
           <Heading fontSize="md" fontWeight={"normal"} mb={1} color={"white"}>
-            Chat with ReadTheDocs and Discourse!
+            Chat with ReadTheDocs, Discourse, and Slicer source code!
           </Heading>
         ) : (
           <Heading
@@ -252,10 +252,13 @@ export function InternalChatWindow(props: { conversationId: string }) {
             Ask me anything about 3D Slicer&apos;s{" "}
             <Link href="https://slicer.readthedocs.io/en/latest/" color={"blue.200"}>
               Documentation
-            </Link> and{" "}
+            </Link>,{" "}
             <Link href="https://discourse.slicer.org/" color={"blue.200"}>
-              Discourse Forum!
-            </Link>
+              Discourse Forum
+            </Link>, and{" "}
+            <Link href="https://github.com/Slicer/Slicer" color={"blue.200"}>
+              Source code
+            </Link>!
           </Heading>
         )}
         <div className="text-white flex flex-wrap items-center mt-4">
@@ -272,8 +275,7 @@ export function InternalChatWindow(props: { conversationId: string }) {
                 }}
                 width={"240px"}
               >
-                <option value="openai_gpt_3_5_turbo">GPT-3.5-Turbo</option>
-                <option value="anthropic_claude_3_sonnet">Claude 3 Sonnet</option>
+                <option value="gpt-4o-mini">GPT-4o mini</option>
               </Select>
             )}
           </div>
